@@ -1,54 +1,104 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 <title>Central Terminal</title>
+
 <style>
-body {
+
+body{
 background:black;
 color:#00ff9c;
 font-family:monospace;
 text-align:center;
 margin-top:100px;
 }
+
 input{
 background:black;
 border:1px solid #00ff9c;
 color:#00ff9c;
 padding:10px;
+font-size:16px;
 }
+
 button{
 background:#00ff9c;
 border:none;
-padding:10px;
+padding:10px 20px;
+font-size:16px;
+cursor:pointer;
 }
+
+#ticket{
+display:none;
+position:relative;
+width:900px;
+margin:auto;
+margin-top:40px;
+}
+
+#name1{
+position:absolute;
+top:150px;
+left:260px;
+font-size:40px;
+font-weight:bold;
+color:black;
+}
+
+#name2{
+position:absolute;
+top:130px;
+left:650px;
+font-size:28px;
+font-weight:bold;
+color:black;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <h2>CENTRAL TERMINAL</h2>
+
 <p>Entrer identifiant passager :</p>
 
 <input id="name" placeholder="Pseudo Minecraft">
+
+<br><br>
+
 <button onclick="generate()">Valider</button>
 
-<div id="ticket"></div>
+
+<div id="ticket">
+
+<img src="billet.png" style="width:100%;">
+
+<div id="name1"></div>
+<div id="name2"></div>
+
+</div>
+
 
 <script>
+
 function generate(){
+
 let name = document.getElementById("name").value;
 
-document.getElementById("ticket").innerHTML = `
-<br>
-PASSAGER : ${name}<br>
-VOL : XC-33<br>
-DESTINATION : NEBARROS<br>
-CARGO : PROTOTYPE B<br>
-STATUT : AUTORISÉ<br><br>
-Autorité : Mr. R4BB1T
-`;
+document.getElementById("ticket").style.display = "block";
+
+document.getElementById("name1").innerText = name;
+document.getElementById("name2").innerText = name;
+
 }
+
 </script>
 
+
 </body>
+
 </html>
