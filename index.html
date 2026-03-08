@@ -14,6 +14,29 @@ font-family:monospace;
 text-align:center;
 }
 
+h2{
+margin-top:40px;
+}
+
+input{
+background:black;
+border:2px solid #00ff9c;
+color:#00ff9c;
+padding:10px;
+font-size:16px;
+outline:none;
+}
+
+button{
+background:#00ff9c;
+border:none;
+color:black;
+padding:10px 20px;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+
 .container{
 position:relative;
 display:inline-block;
@@ -26,7 +49,7 @@ width:900px;
 
 .nameLeft{
 position:absolute;
-top:165px;
+top:170px;
 left:170px;
 font-size:40px;
 font-weight:bold;
@@ -35,8 +58,8 @@ color:black;
 
 .nameRight{
 position:absolute;
-top:155px;
-left:640px;
+top:150px;
+left:650px;
 font-size:28px;
 font-weight:bold;
 color:black;
@@ -44,29 +67,15 @@ color:black;
 
 .ticketNumber{
 position:absolute;
-top:250px;
+top:260px;
 left:690px;
 font-size:28px;
 font-weight:bold;
 color:black;
 }
 
-button{
-background:#00ff9c;
-border:none;
-padding:10px 20px;
-font-size:16px;
-cursor:pointer;
-}
-
-input{
-background:black;
-border:1px solid #00ff9c;
-color:#00ff9c;
-padding:8px;
-}
-
 </style>
+
 </head>
 
 <body>
@@ -76,11 +85,10 @@ padding:8px;
 <p>Entrer identifiant passager :</p>
 
 <input id="name" placeholder="Pseudo">
-<br><br>
+
+<br>
 
 <button onclick="generate()">Valider</button>
-
-<br><br>
 
 <div id="ticket" class="container" style="display:none;">
 
@@ -107,12 +115,10 @@ ticket = 1;
 ticket = parseInt(ticket) + 1;
 }
 
-// limiter à 1000
 if(ticket > 1000){
 ticket = 1;
 }
 
-// sauvegarder
 localStorage.setItem("ticketNumber", ticket);
 
 // afficher billet
@@ -121,7 +127,6 @@ document.getElementById("ticket").style.display = "block";
 document.getElementById("name1").innerText = name;
 document.getElementById("name2").innerText = name;
 
-// format 0001
 let formatted = ticket.toString().padStart(4,'0');
 
 document.getElementById("ticketNum").innerText = "#"+formatted;
