@@ -3,21 +3,21 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Terminal - La Central</title>
+<title>Central Terminal</title>
 
 <style>
 
 body{
-font-family: Arial;
+background:black;
+color:#00ff9c;
+font-family:monospace;
 text-align:center;
-background:#111;
-color:white;
 }
 
 .container{
 position:relative;
 display:inline-block;
-margin-top:30px;
+margin-top:40px;
 }
 
 .ticketimg{
@@ -27,15 +27,15 @@ width:900px;
 .nameLeft{
 position:absolute;
 top:165px;
-left:180px;
-font-size:38px;
+left:170px;
+font-size:40px;
 font-weight:bold;
 color:black;
 }
 
 .nameRight{
 position:absolute;
-top:150px;
+top:155px;
 left:640px;
 font-size:28px;
 font-weight:bold;
@@ -45,10 +45,25 @@ color:black;
 .ticketNumber{
 position:absolute;
 top:250px;
-left:670px;
+left:690px;
 font-size:28px;
 font-weight:bold;
 color:black;
+}
+
+button{
+background:#00ff9c;
+border:none;
+padding:10px 20px;
+font-size:16px;
+cursor:pointer;
+}
+
+input{
+background:black;
+border:1px solid #00ff9c;
+color:#00ff9c;
+padding:8px;
 }
 
 </style>
@@ -56,10 +71,14 @@ color:black;
 
 <body>
 
-<h2>Terminal d'embarquement — Autorité : La Central</h2>
+<h2>CENTRAL TERMINAL</h2>
 
-<input id="name" placeholder="Entre ton pseudo">
-<button onclick="generate()">Générer le billet</button>
+<p>Entrer identifiant passager :</p>
+
+<input id="name" placeholder="Pseudo">
+<br><br>
+
+<button onclick="generate()">Valider</button>
 
 <br><br>
 
@@ -79,15 +98,33 @@ function generate(){
 
 let name = document.getElementById("name").value;
 
-// numéro aléatoire
-let ticket = Math.floor(Math.random()*9000)+1000;
+// récupérer le dernier numéro
+let ticket = localStorage.getItem("ticketNumber");
 
+if(ticket == null){
+ticket = 1;
+}else{
+ticket = parseInt(ticket) + 1;
+}
+
+// limiter à 1000
+if(ticket > 1000){
+ticket = 1;
+}
+
+// sauvegarder
+localStorage.setItem("ticketNumber", ticket);
+
+// afficher billet
 document.getElementById("ticket").style.display = "block";
 
 document.getElementById("name1").innerText = name;
 document.getElementById("name2").innerText = name;
 
-document.getElementById("ticketNum").innerText = "#"+ticket;
+// format 0001
+let formatted = ticket.toString().padStart(4,'0');
+
+document.getElementById("ticketNum").innerText = "#"+formatted;
 
 }
 
