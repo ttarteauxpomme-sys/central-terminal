@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Central Terminal</title>
+<style>
+body {
+background:black;
+color:#00ff9c;
+font-family:monospace;
+text-align:center;
+margin-top:100px;
+}
+input{
+background:black;
+border:1px solid #00ff9c;
+color:#00ff9c;
+padding:10px;
+}
+button{
+background:#00ff9c;
+border:none;
+padding:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>CENTRAL TERMINAL</h2>
+<p>Entrer identifiant passager :</p>
+
+<input id="name" placeholder="Pseudo Minecraft">
+<button onclick="generate()">Valider</button>
+
+<div id="ticket"></div>
+
+<script>
+function generate(){
+let name = document.getElementById("name").value;
+
+document.getElementById("ticket").innerHTML = `
+<br>
+PASSAGER : ${name}<br>
+VOL : XC-33<br>
+DESTINATION : NEBARROS<br>
+CARGO : PROTOTYPE B<br>
+STATUT : AUTORISÉ<br><br>
+Autorité : Mr. R4BB1T
+`;
+}
+</script>
+
+</body>
+</html>
