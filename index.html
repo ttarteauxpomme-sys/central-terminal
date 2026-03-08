@@ -2,86 +2,76 @@
 <html>
 
 <head>
-<title>Central Terminal</title>
+<meta charset="UTF-8">
+<title>Terminal - La Central</title>
 
 <style>
 
 body{
-background:black;
-color:#00ff9c;
-font-family:monospace;
+font-family: Arial;
 text-align:center;
-margin-top:100px;
+background:#111;
+color:white;
 }
 
-input{
-background:black;
-border:1px solid #00ff9c;
-color:#00ff9c;
-padding:10px;
-font-size:16px;
-}
-
-button{
-background:#00ff9c;
-border:none;
-padding:10px 20px;
-font-size:16px;
-cursor:pointer;
-}
-
-#ticket{
-display:none;
+.container{
 position:relative;
-width:900px;
-margin:auto;
-margin-top:40px;
+display:inline-block;
+margin-top:30px;
 }
 
-#name1{
+.ticketimg{
+width:900px;
+}
+
+.nameLeft{
 position:absolute;
-top:150px;
-left:260px;
-font-size:40px;
+top:165px;
+left:180px;
+font-size:38px;
 font-weight:bold;
 color:black;
 }
 
-#name2{
+.nameRight{
 position:absolute;
-top:130px;
-left:650px;
+top:150px;
+left:640px;
+font-size:28px;
+font-weight:bold;
+color:black;
+}
+
+.ticketNumber{
+position:absolute;
+top:250px;
+left:670px;
 font-size:28px;
 font-weight:bold;
 color:black;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h2>CENTRAL TERMINAL</h2>
+<h2>Terminal d'embarquement — Autorité : La Central</h2>
 
-<p>Entrer identifiant passager :</p>
-
-<input id="name" placeholder="Pseudo Minecraft">
+<input id="name" placeholder="Entre ton pseudo">
+<button onclick="generate()">Générer le billet</button>
 
 <br><br>
 
-<button onclick="generate()">Valider</button>
+<div id="ticket" class="container" style="display:none;">
 
+<img src="billet.png" class="ticketimg">
 
-<div id="ticket">
-
-<img src="billet.png" style="width:100%;">
-
-<div id="name1"></div>
-<div id="name2"></div>
+<div id="name1" class="nameLeft"></div>
+<div id="name2" class="nameRight"></div>
+<div id="ticketNum" class="ticketNumber"></div>
 
 </div>
-
 
 <script>
 
@@ -89,16 +79,19 @@ function generate(){
 
 let name = document.getElementById("name").value;
 
+// numéro aléatoire
+let ticket = Math.floor(Math.random()*9000)+1000;
+
 document.getElementById("ticket").style.display = "block";
 
 document.getElementById("name1").innerText = name;
 document.getElementById("name2").innerText = name;
 
+document.getElementById("ticketNum").innerText = "#"+ticket;
+
 }
 
 </script>
 
-
 </body>
-
 </html>
