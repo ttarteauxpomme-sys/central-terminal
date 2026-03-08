@@ -16,6 +16,7 @@ text-align:center;
 
 h2{
 margin-top:40px;
+letter-spacing:3px;
 }
 
 input{
@@ -47,28 +48,34 @@ margin-top:40px;
 width:900px;
 }
 
+/* nom gauche */
+
 .nameLeft{
 position:absolute;
-top:170px;
-left:170px;
-font-size:40px;
+top:150px;
+left:210px;
+font-size:36px;
 font-weight:bold;
 color:black;
 }
+
+/* nom droite */
 
 .nameRight{
 position:absolute;
-top:150px;
+top:145px;
 left:650px;
-font-size:28px;
+font-size:26px;
 font-weight:bold;
 color:black;
 }
 
+/* numéro ticket */
+
 .ticketNumber{
 position:absolute;
-top:260px;
-left:690px;
+top:255px;
+left:675px;
 font-size:28px;
 font-weight:bold;
 color:black;
@@ -106,7 +113,6 @@ function generate(){
 
 let name = document.getElementById("name").value;
 
-// récupérer le dernier numéro
 let ticket = localStorage.getItem("ticketNumber");
 
 if(ticket == null){
@@ -121,7 +127,6 @@ ticket = 1;
 
 localStorage.setItem("ticketNumber", ticket);
 
-// afficher billet
 document.getElementById("ticket").style.display = "block";
 
 document.getElementById("name1").innerText = name;
