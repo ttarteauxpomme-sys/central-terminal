@@ -16,7 +16,7 @@ text-align:center;
 
 h1{
 margin-top:40px;
-letter-spacing:4px;
+letter-spacing:5px;
 }
 
 input{
@@ -43,6 +43,8 @@ background:#00ff88;
 color:black;
 }
 
+/* zone billet */
+
 .container{
 position:relative;
 display:inline-block;
@@ -53,34 +55,35 @@ margin-top:40px;
 width:900px;
 }
 
-/* Nom gauche */
+/* nom gauche */
 
 .nameLeft{
 position:absolute;
 top:165px;
-left:340px;
-font-size:28px;
+left:330px;
+font-size:26px;
 font-weight:bold;
 color:black;
 }
-/* Nom droite */
+
+/* nom droite */
 
 .nameRight{
 position:absolute;
-top:165px;
-left:720px;
+top:160px;
+left:700px;
 font-size:22px;
 font-weight:bold;
 color:black;
 }
 
-/* Numéro ticket */
+/* numero ticket */
 
 .ticketNumber{
 position:absolute;
 top:260px;
-left:760px;
-font-size:26px;
+left:740px;
+font-size:24px;
 font-weight:bold;
 color:black;
 }
@@ -96,9 +99,11 @@ color:black;
 
 <input id="name" placeholder="Pseudo">
 
-<br>
+<br><br>
 
 <button onclick="generate()">Valider</button>
+
+<br><br>
 
 <div id="ticket" class="container" style="display:none;">
 
@@ -116,7 +121,6 @@ function generate(){
 
 let name = document.getElementById("name").value;
 
-// compteur ticket
 let ticket = localStorage.getItem("ticketNumber");
 
 if(ticket == null){
@@ -131,7 +135,6 @@ ticket = 1;
 
 localStorage.setItem("ticketNumber", ticket);
 
-// afficher billet
 document.getElementById("ticket").style.display = "block";
 
 document.getElementById("name1").innerText = name;
@@ -146,4 +149,5 @@ document.getElementById("ticketNum").innerText = "#"+formatted;
 </script>
 
 </body>
+
 </html>
