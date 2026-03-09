@@ -9,33 +9,38 @@
 
 body{
 background:black;
-color:#00ff9c;
+color:#00ff88;
 font-family:monospace;
 text-align:center;
 }
 
-h2{
+h1{
 margin-top:40px;
-letter-spacing:3px;
+letter-spacing:4px;
 }
 
 input{
 background:black;
-border:2px solid #00ff9c;
-color:#00ff9c;
-padding:10px;
-font-size:16px;
-outline:none;
+border:2px solid #00ff88;
+color:#00ff88;
+padding:12px;
+font-size:18px;
+width:300px;
 }
 
 button{
-background:#00ff9c;
-border:none;
-color:black;
-padding:10px 20px;
-font-size:16px;
+background:black;
+border:2px solid #00ff88;
+color:#00ff88;
+padding:10px 25px;
+font-size:18px;
 cursor:pointer;
-margin-top:10px;
+margin-top:15px;
+}
+
+button:hover{
+background:#00ff88;
+color:black;
 }
 
 .container{
@@ -48,46 +53,45 @@ margin-top:40px;
 width:900px;
 }
 
-/* nom gauche */
+/* Nom gauche */
 
 .nameLeft{
 position:absolute;
 top:150px;
 left:210px;
-font-size:36px;
+font-size:34px;
 font-weight:bold;
 color:black;
 }
 
-/* nom droite */
+/* Nom droite */
 
 .nameRight{
 position:absolute;
-top:145px;
+top:140px;
 left:650px;
 font-size:26px;
 font-weight:bold;
 color:black;
 }
 
-/* numéro ticket */
+/* Numéro ticket */
 
 .ticketNumber{
 position:absolute;
-top:255px;
-left:675px;
+top:250px;
+left:680px;
 font-size:28px;
 font-weight:bold;
 color:black;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h2>CENTRAL TERMINAL</h2>
+<h1>CENTRAL TERMINAL</h1>
 
 <p>Entrer identifiant passager :</p>
 
@@ -113,6 +117,7 @@ function generate(){
 
 let name = document.getElementById("name").value;
 
+// compteur ticket
 let ticket = localStorage.getItem("ticketNumber");
 
 if(ticket == null){
@@ -127,6 +132,7 @@ ticket = 1;
 
 localStorage.setItem("ticketNumber", ticket);
 
+// afficher billet
 document.getElementById("ticket").style.display = "block";
 
 document.getElementById("name1").innerText = name;
